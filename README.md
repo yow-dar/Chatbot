@@ -2,19 +2,6 @@
 bot name:@HungerBot
 This is a chatbot of telegram which can search the shop in googlemap and help us do the decision of what we eat later.
 
-### Run Locally  
-You can either setup https server or using `ngrok` as a proxy.  
-
-**`ngrok` would be used in the following instruction**  
-
-```sh  
-./ngrok http 5000  
-```  
-
-After that, `ngrok` would generate a https URL.  
-
-You should set `WEBHOOK_URL` (in app.py) to `your-https-URL/hook`.  
-
 #### Run the sever  
 
 ```sh  
