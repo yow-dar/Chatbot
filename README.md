@@ -1,63 +1,85 @@
-# TOC Project 2019
+# Telegram chatbot  
+bot name:@HungerBot
+This is a chatbot of telegram which can search the shop in googlemap and help us do the decision of what we eat later.
 
-Template Code for TOC Project 2019
+### Run Locally  
+You can either setup https server or using `ngrok` as a proxy.  
 
-A Facebook messenger bot based on a finite state machine
+**`ngrok` would be used in the following instruction**  
 
-More details in the [Slides](https://hackmd.io/p/SkpBR-Yam#/) and [FAQ](https://hackmd.io/s/B1Xw7E8kN)
+```sh  
+./ngrok http 5000  
+```  
 
-## Setup
+After that, `ngrok` would generate a https URL.  
 
-### Prerequisite
-* Python 3
-* Facebook Page and App
-* HTTPS Server
+You should set `WEBHOOK_URL` (in app.py) to `your-https-URL/hook`.  
 
-#### Install Dependency
-```sh
-pip3 install -r requirements.txt
-```
+#### Run the sever  
 
-* pygraphviz (For visualizing Finite State Machine)
-    * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
+```sh  
+python3 app.py  
+```  
 
-#### Secret Data
-
-`VERIFY_TOKEN` and `ACCESS_TOKEN` **MUST** be set to proper values.
-Otherwise, you might not be able to run your code.
-
-#### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
-
-**`ngrok` would be used in the following instruction**
-
-```sh
-./ngrok http 5000
-```
-
-After that, `ngrok` would generate a https URL.
-
-#### Run the sever
-
-```sh
-python3 app.py
-```
-
-## Finite State Machine
-![fsm](./img/show-fsm.png)
-
-## Usage
-The initial state is set to `user`.
-
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
-
-* user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
-
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
+## Finite State Machine  
+  ![fsm](https://i.imgur.com/MccyeeQ.png)
 
 
-## Reference
-[TOC-Project-2017](https://github.com/Lee-W/TOC-Project-2017) ❤️ [@Lee-W](https://github.com/Lee-W)
+## Usage  
+The initial state is set to `user`.  
+
+Every time `user` state is triggered to `advance` to `eat` state, and go next state by triggering `advance`. At the last state, they will `go_back` to `user` state after the bot replies corresponding message.  
+
+* user  
+    * Input: "hungry"  
+        *   Output: 
+            "search restaurant? type:search
+            want to eat fastfood? type:fast food 
+            want to eat normal food? type:normal food  "
+                     -> go to eat 
+    * Input: "fried" -> go to fried
+    * Input: "cheap" -> go to cheap
+        * 
+    
+* eat
+    * Input: "search" -> go to search state
+    * Input: "fast food" -> go to fast food state
+    * Input: "normal food" -> go to food state
+
+* search    
+    * Output: "Please type where do you want to find? 輸入你想找的店" 
+        * Input: "711"(anywhere) -> go to google state
+
+* google    
+    * Output: "https://www.google.com.tw/maps/search/711"
+        ->return user state
+
+* fast food
+    * Output: "fried or non-fried"
+        * Input: "fried" -> go to fried state
+        * Input: "non-fried" -> go to non-fried state
+
+* fried
+    * Output:"KFC"(random produce the restaurant)
+        "to go"(random produce for here or to go)    
+        -> return user state
+
+* non-fried
+    * Ouput:"subway"(random produce the restaurant)
+        "to go"(random produce for here or to go)    
+        -> return user state
+        
+* food
+    * Output: "expensive or cheap"
+        * Input: "expensive" -> go to expensive state
+        * Input: "cheap" -> go to cheap state
+
+* expensive
+    * Output: "西提"(random produce the restaurant)
+        "to go"(random produce for here or to go)    
+        -> return user state
+        
+* cheap
+    * Output: "煦悅"(random produce the restaurant)
+        "for here"(random produce for here or to go)    
+        -> return user state
