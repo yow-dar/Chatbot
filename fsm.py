@@ -72,7 +72,7 @@ class TocMachine(GraphMachine):
         return False
     def on_enter_demo(self,update):
         if update.get('message') and update['message'].get("text"):
-            sender_id = update'[sender']['id']
+            sender_id = update['sender']['id']
             sender_text_message(sender_id,"Demo")
             self.go_back(update)
         return False
