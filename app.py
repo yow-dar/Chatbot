@@ -58,7 +58,7 @@ machine = TocMachine(
         {
             'triiger':'advance',
             'source':'demo',
-            'dest':'demo',
+            'dest':'user',
             'conditions':'is_going_to_demo'
         },
 	{
