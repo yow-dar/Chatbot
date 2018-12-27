@@ -69,6 +69,7 @@ class TocMachine(GraphMachine):
             send_text_message(sender_id,"search for restaurant?Please type:search")
             send_text_message(sender_id,"want to eat fastfood? Please type:fast food")
             send_text_message(sender_id,"Want to eat normal food? Please type:normal food")
+            send_text_message(sender_id,"demo")
         return False
     def on_enter_demo(self,update):
         if update.get('message') and update['message'].get("text"):
