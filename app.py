@@ -59,7 +59,7 @@ machine = TocMachine(
             'trigger':'advance',
             'source':'demo',
             'dest':'user',
-            'conditions':'is_going_to_demo'
+            'conditions':'is_going_to_user'
         },
 	{
 	    'trigger': 'advance',
