@@ -22,7 +22,7 @@ machine = TocMachine(
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': 'eat',
+            'dest': {'eat','demo'},
             'conditions': 'is_going_to_eat'
         },
         {
