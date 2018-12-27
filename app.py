@@ -56,7 +56,7 @@ machine = TocMachine(
             'conditions': 'is_going_to_fastfood'
         },
         {
-            'triiger':'advance',
+            'trigger':'advance',
             'source':'demo',
             'dest':'user',
             'conditions':'is_going_to_demo'
