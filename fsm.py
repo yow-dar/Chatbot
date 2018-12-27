@@ -76,6 +76,12 @@ class TocMachine(GraphMachine):
             sender_text_message(sender_id,"Demo")
             self.go_back(update)
         return False
+    def on_exit_demo(self,update):
+        if update.get('message') and update['message'].get("text"):
+            sender_id = update['sender']['id']
+            send_text_message(sender_id,'Demo')
+            print('demo')
+        return False
     def on_exit_eat(self, update):
         if update.get("message") and update['message'].get("text"):
             print('Leaving eat')
