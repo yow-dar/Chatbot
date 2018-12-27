@@ -61,12 +61,6 @@ machine = TocMachine(
             'dest': 'fastfood',
             'conditions': 'is_going_to_fastfood'
         },
-        {
-            'trigger':'advance',
-            'source':'demo',
-            'dest':'user',
-            'conditions':'is_going_to_user'
-        },
 	{
 	    'trigger': 'advance',
             'source': 'fastfood',
@@ -104,10 +98,11 @@ machine = TocMachine(
 		'fried',
 		'nonfried',
 		'expensive',
-		'cheap'
+		'cheap',
+                'demo'
 		    ],
             'dest': 'user'
-        }
+        }i
     ],
     initial='user',
     auto_transitions=False,
