@@ -102,7 +102,7 @@ machine = TocMachine(
                 'demo'
 		    ],
             'dest': 'user'
-        }i
+        }
     ],
     initial='user',
     auto_transitions=False,
