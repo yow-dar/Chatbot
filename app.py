@@ -2,7 +2,7 @@ from bottle import route, run, request, abort, static_file
 
 from fsm import TocMachine
 import os
-
+#jijiji
 VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 machine = TocMachine(
     states=[
