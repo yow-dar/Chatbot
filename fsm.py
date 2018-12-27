@@ -9,6 +9,11 @@ class TocMachine(GraphMachine):
             model=self,
             **machine_configs
         )
+    def is_going_to_monkey(self,update):
+        if update.get("message") and u[date['message'].get("text"):
+           text = update['message']['text']
+           return text.lower() == 'monkey'
+        return False
     def is_going_to_eat(self,update):
         if update.get("message") and update['message'].get("text"):
             text = update['message']['text']
@@ -64,6 +69,12 @@ class TocMachine(GraphMachine):
             send_text_message(sender_id,"search for restaurant?Please type:search")
             send_text_message(sender_id,"want to eat fastfood? Please type:fast food")
             send_text_message(sender_id,"Want to eat normal food? Please type:normal food")
+        return False
+    def on_enter_demo(self,update):
+        if update.get('message') and update['message'].get("text"):
+            sender_id = update'[sender']['id']
+            sender_text_message(sender_id,"Demo")
+            self.go_back(update)
         return False
     def on_exit_eat(self, update):
         if update.get("message") and update['message'].get("text"):

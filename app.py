@@ -15,7 +15,8 @@ machine = TocMachine(
     	'food',
     	'expensive',
     	'cheap',
-        'google'
+        'google',
+	'demo'
     ],
     transitions=[
         {
@@ -53,6 +54,12 @@ machine = TocMachine(
             'source': 'eat',
             'dest': 'fastfood',
             'conditions': 'is_going_to_fastfood'
+        },
+        {
+            'triiger':'advance',
+            'source':'demo',
+            'dest':'monkey',
+            'conditions':'is_going_to_monkey'
         },
 	{
 	    'trigger': 'advance',
