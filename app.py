@@ -58,8 +58,8 @@ machine = TocMachine(
         {
             'triiger':'advance',
             'source':'demo',
-            'dest':'monkey',
-            'conditions':'is_going_to_monkey'
+            'dest':'demo',
+            'conditions':'is_going_to_demo'
         },
 	{
 	    'trigger': 'advance',

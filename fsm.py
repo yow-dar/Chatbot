@@ -9,10 +9,10 @@ class TocMachine(GraphMachine):
             model=self,
             **machine_configs
         )
-    def is_going_to_monkey(self,update):
+    def is_going_to_demo(self,update):
         if update.get("message") and u[date['message'].get("text"):
            text = update['message']['text']
-           return text.lower() == 'monkey'
+           return text.lower() == 'demo'
         return False
     def is_going_to_eat(self,update):
         if update.get("message") and update['message'].get("text"):
